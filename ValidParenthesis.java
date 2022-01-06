@@ -1,5 +1,7 @@
-class Solution {
-    public boolean isValid(String s) {
+import java.util.Stack;
+
+class ValidParenthesis {
+    public static boolean isValid(String s) {
         boolean ret = false;
         int length = s.length();
         
@@ -32,5 +34,11 @@ class Solution {
         }        
         
         return true;
+    }
+
+    public static void main(String[] args) {
+        boolean solution = isValid("()");
+        System.out.println(solution);
+        return;
     }
 }

@@ -1,4 +1,4 @@
-class Solution{
+class TwoSums{
     public static int[] twoSums(int[] nums, int target){
         int[] retValue = new int[2];
         for(int i = 0; i < nums.length - 1; i++){
