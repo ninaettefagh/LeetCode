@@ -22,6 +22,5 @@ class TwoSums{
         int target = 6;
         int[] solution = twoSums(nums, target);
         System.out.println("[" + solution[0] + "," + solution[1] + "]");
-        return;
     }
 }

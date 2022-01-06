@@ -27,18 +27,13 @@ class ValidParenthesis {
             }
             
             i++;
-        }  
-        
-        if (!st.empty()){
-            return false;
-        }        
-        
-        return true;
+        }
+
+        return st.empty();
     }
 
     public static void main(String[] args) {
-        boolean solution = isValid("()");
+        boolean solution = isValid("())");
         System.out.println(solution);
-        return;
     }
 }
