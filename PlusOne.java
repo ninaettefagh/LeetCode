@@ -1,35 +1,37 @@
-class RemoveElement {
-    public static int removeElement(int[] nums, int val) {
-        int sizeAfter = 0;
-        if (nums.length == 0){
-            return 0;
+
+class PlusOne {
+    public static int[] plusOne(int[] digits) {
+        int digit = digits.length - 1;
+        if(digits[digit] != 9) {
+            digits[digit] ++;
+            return digits;
         }
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] != val){
-                nums[sizeAfter] = nums[i];
-                sizeAfter++;
+        while (digits[digit] == 9) {
+            digits[digit] = 0;
+            digit = digit - 1;
+
+            if (digit < 0) {
+                int[] newDig = new int[digits.length + 1];
+                newDig[0] = 1;
+                System.arraycopy(digits, 0, newDig, 1, digits.length);
+                return newDig;
+            }
+            if(digits[digit] != 9){
+                digits[digit] ++;
+                break;
             }
         }
 
-        for(int j=0; j<sizeAfter; j++) {
-            System.out.println("NUMS[J] " + nums[j]);
-            System.out.println("J VAL " + j );
-        }
-
-        return sizeAfter;
+        return digits;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[4];
+        int[] nums = new int[2];
 
+        nums[0] = 8;
+        nums[1] = 9;
 
-        nums[0] = 1;
-        nums[1] = 2;
-        nums[2] = 3;
-        nums[3] = 4;
-
-        int target = 1;
-        int solution = removeElement(nums, target);
+        int[] solution = plusOne(nums);
         System.out.println(solution);
     }
 }

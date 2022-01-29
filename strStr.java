@@ -1,4 +1,4 @@
-public class strstr {
+class strStr {
     public static int strStr(String haystack, String needle) {
 
         int lengthHay = haystack.length();
