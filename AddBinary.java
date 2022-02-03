@@ -1,44 +1,18 @@
 class AddBinary {
     public static String addBinary(String a, String b) {
-        String sum = "";
-        String nextDig;
+        StringBuilder res = new StringBuilder();
+        int i = a.length() - 1;
+        int j = b.length() - 1;
         int carry = 0;
-        while(a.length() > b.length()) {
-            b = "0" + b;
+        while(i >= 0 || j >= 0){
+            int sum = carry;
+            if(i >= 0) sum += a.charAt(i--) - '0';
+            if(j >= 0) sum += b.charAt(j--) - '0';
+            carry = sum > 1 ? 1 : 0;
+            res.append(sum % 2);
         }
-        while(a.length() < b.length()) {
-            a = "0" + a;
-        }
-
-        for(int i = b.length()-1; i >= 0; i--) {
-            if (a.charAt(i) == '0' && b.charAt(i) == '0') {
-                if (carry == 0) nextDig = "0";
-                else {
-                    nextDig = "1";
-                    carry = 0;
-                }
-            } else if (a.charAt(i) == '1' && b.charAt(i) == '1') {
-                if (carry == 0) {
-                    nextDig = "0";
-                    carry = 1;
-                } else {
-                    nextDig = "1";
-                }
-            } else {
-                if (carry == 0) {
-                    nextDig = "1";
-                } else {
-                    nextDig = "0";
-                    //carry = 1;
-                }
-            }
-            sum = nextDig + sum;
-        }
-        if(carry == 1){
-            sum = "1" + sum;
-        }
-
-        return sum;
+        if(carry != 0) res.append(carry);
+        return res.reverse().toString();
     }
 
     public static void main(String[] args) {
